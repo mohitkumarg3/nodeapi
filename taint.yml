@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: taint
+  namespace: practice
+  labels:
+    security: s1
+spec:
+  containers:
+  - name: local
+    image: supergaintkir/animals:bear
+  tolerations:
+  - key: "special"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
